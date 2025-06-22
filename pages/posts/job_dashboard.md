@@ -8,6 +8,10 @@ author: Prem Shrawan Jha
 
 # Job Tracking Dashboard
 
+## View the Dashboard
+
+You can view the interactive dashboard here: [Job Search Tracking Dashboard](https://lookerstudio.google.com/reporting/2d286904-b2af-490a-8937-fa8aa26168ef)
+
 ## Overview
 
 The purpose of this project is to track my job applications through a dashboard, allowing me to better understand how my job search is progressing. This dashboard helps monitor key data such as:
