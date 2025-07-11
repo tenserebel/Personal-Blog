@@ -4,28 +4,72 @@ title: Projects
 date: 2021-03-18
 ---
 
-# Photos
+import ProjectCard from '../components/ProjectCard'
 
-Here's some of my photography.
+# Projects
 
-import Image from 'next/image'
-
-<Image
-  src="/images/photo2.jpg"
-  alt="Photo"
-  width={1125}
-  height={750}
-  priority
-  className="next-image"
+<ProjectCard
+  title="COMSC Assessment Tracking"
+  date="Nov 2023 – Dec 2023"
+  role="Student, Cardiff University"
+  description={[
+    "Collaborated on a web-based platform to oversee and administer all of the university's ongoing assessments. Through the portal, modules can be evaluated, authorized, and sent back for review for any necessary corrections by roles.",
+    'Specifically developed a security system with a hierarchy that let different roles access different areas of the portal only.'
+  ]}
+  link="https://github.com/tenserebel/Assessment-Tracking"
 />
-[Unsplash ↗ ](https://unsplash.com/photos/WeYamle9fDM)
 
-<Image
-  src="/images/photo.jpg"
-  alt="Photo"
-  width={1125}
-  height={750}
-  priority
-  className="next-image"
+<ProjectCard
+  title="Damagic"
+  date="Apr 2022 – May 2023"
+  role="Student, MIT ADT University"
+  description={[
+    'Created a web application for car damage detection, utilizing computer vision techniques to automatically identify and generate bounding boxes around damaged areas in given images. We had used Django for the backend.',
+    'Won Best Presentation Award for the project at the 5th National Level Conference on Innovative Global Technology Trends.'
+  ]}
+  link="https://github.com/tenserebel/Damagic"
 />
-[Unsplash ↗ ](https://unsplash.com/photos/ndN00KmbJ1c)
+
+<ProjectCard
+  title="Carbon FP"
+  date="Mar 2022"
+  role=""
+  description={[
+    'Developed Carbon FP, a website dedicated to providing information and calculations related to carbon emissions.',
+    'Built a mobile-responsive webpage using Flask, HTML, CSS, and JavaScript, establishing accessibility across different devices.'
+  ]}
+  link="https://github.com/tenserebel/CO2-emission"
+/>
+
+<ProjectCard
+  title="Product-based-recommendation-system"
+  date="May 2022"
+  role=""
+  description={[
+    'Implemented a high-efficiency product recommendation system using machine learning algorithms (KNN, cosine similarity) with MongoDB for storing user data and semi-collaborative filtering. Achieved 92.5% efficiency measured by NDCG.'
+  ]}
+  link="https://github.com/tenserebel/Product-based-recommendation-system"
+/>
+
+<ProjectCard
+  title="Robocon Portfolio Website"
+  date=""
+  role="Associated with Team Volta"
+  description={[
+    'A portfolio website for the team which would display our achievements and potential members would be able to contact us through it.',
+    'Skills: Cascading Style Sheets (CSS) · Cloud · JavaScript · Sass · HTML5'
+  ]}
+  link="https://robocon-team.netlify.app"
+/>
+
+<ProjectCard
+  title="Uber Analysis"
+  date=""
+  role=""
+  description={[
+    'This is exploratory data analysis (EDA) on Uber data. Exploratory data analysis is an approach of analyzing data sets to summarize their main characteristics, often using statistical graphics and other data visualization methods.',
+    'In this project we explore the data to answer certain questions regarding the data as well as using dashboards to represent the data properly.',
+    'Skills: Python (Programming Language) · Flask · Cascading Style Sheets (CSS) · Data Analysis · JavaScript · Google Data Studio · HTML'
+  ]}
+  link="https://github.com/tenserebel/uber-analysis"
+/>
