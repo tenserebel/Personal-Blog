@@ -1,6 +1,6 @@
 import 'nextra-theme-blog/style.css'
 import Head from 'next/head'
-
+import { GoogleAnalytics } from '@next/third-parties/google'
 import '../styles/main.css'
 
 export default function Nextra({ Component, pageProps }) {
@@ -22,6 +22,7 @@ export default function Nextra({ Component, pageProps }) {
         />
       </Head>
       <Component {...pageProps} />
+      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
     </>
   )
 }
