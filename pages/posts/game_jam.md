@@ -10,6 +10,8 @@ author: Prem Shrawan Jha
 
 ---
 
+![Elf-themed game title screen](/images/Game%20Jam/elf_title_image.png)
+
 On the 6th and 7th of December 2025, I took part in a 48-hour Christmas-themed game jam focused on C++ and Rust. The theme revealed at the start of the event was "Elf on a Shelf." What followed was an intense, creative, and genuinely fun weekend of designing and building a game from scratch with a talented team.
 
 ---
