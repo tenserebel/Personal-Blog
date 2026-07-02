@@ -1,0 +1,159 @@
+:root {
+  /* editorial palette — paper & ink, light default */
+  --paper: #f4f1ea;
+  --bg: #f4f1ea;
+  --surface: #efeae0;
+  --surface-2: #e7e0d3;
+  --ink: #1a1714;
+  --muted: #6b6459;
+  --hairline: #cfc7b8;
+  --accent: #c8452f;
+  --accent-2: #1f4b6e;
+  --code-bg: #23201b;
+  --code-fg: #e8e2d6;
+
+  /* spacing scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-4: 1rem;
+  --space-6: 2rem;
+  --space-8: 3rem;
+  --space-12: 5rem;
+
+  --measure: 42rem;
+  --gutter: clamp(1.25rem, 5vw, 5rem);
+
+  /* font-family fallbacks; next/font overrides the CSS vars */
+  --font-display: var(--font-fraunces), Georgia, 'Times New Roman', serif;
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-mono-jb), ui-monospace, 'SFMono-Regular', Menlo,
+    monospace;
+
+  color-scheme: light;
+}
+
+[data-theme='dark'] {
+  --paper: #14120f;
+  --bg: #14120f;
+  --surface: #1c1915;
+  --surface-2: #24201a;
+  --ink: #ece7dc;
+  --muted: #9b9184;
+  --hairline: #34302a;
+  --accent: #e86a52;
+  --accent-2: #7fb2d9;
+  --code-bg: #0e0c0a;
+  --code-fg: #ece7dc;
+
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+a {
+  color: var(--accent);
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--paper);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+/* scroll-reveal utility (driven by IntersectionObserver in _app) */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  * {
+    scroll-behavior: auto !important;
+  }
+}
+
+/* syntax highlighting (rehype-highlight / hljs classes) */
+.hljs-comment,
+.hljs-quote {
+  color: var(--muted);
+  font-style: italic;
+}
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-built_in {
+  color: var(--accent-2);
+}
+.hljs-string,
+.hljs-attr {
+  color: #9ecb7a;
+}
+.hljs-number,
+.hljs-literal {
+  color: var(--accent);
+}
+.hljs-title,
+.hljs-function .hljs-title,
+.hljs-section {
+  color: #e8b34a;
+}
+.hljs-name,
+.hljs-tag {
+  color: var(--accent-2);
+}

@@ -1,53 +1,54 @@
-import React from 'react'
+import Link from 'next/link'
+import styles from './ProjectCard.module.css'
 
-export default function ProjectCard({ title, date, role, description, link }) {
+export default function ProjectCard({
+  index,
+  title,
+  date,
+  role,
+  description,
+  link,
+  post
+}) {
+  const Title = link ? 'a' : 'span'
+  const titleProps = link
+    ? { href: link, target: '_blank', rel: 'noopener noreferrer' }
+    : {}
+
   return (
-    <div className="project-card">
-      <h3>
-        {link ? (
-          <a href={link} target="_blank" rel="noopener noreferrer">
-            {title}
-          </a>
-        ) : (
-          title
-        )}
+    <article className={`${styles.card} reveal`}>
+      <div className={styles.top}>
+        <span className={styles.index}>
+          {String(index + 1).padStart(2, '0')}
+        </span>
+        {link ? <span className={styles.arrow} aria-hidden="true">↗</span> : null}
+      </div>
+
+      <h3 className={styles.title}>
+        <Title className={styles.titleLink} {...titleProps}>
+          {title}
+        </Title>
       </h3>
-      <p>
-        <strong>{date}</strong>
-        {role ? ` – ` : null}
-        <em>{role}</em>
-      </p>
-      <ul>
-        {description.map((item, idx) => (
-          <li key={idx}>{item}</li>
+
+      {(date || role) && (
+        <p className={styles.meta}>
+          {date ? <span className={styles.date}>{date}</span> : null}
+          {date && role ? <span className={styles.sep}>/</span> : null}
+          {role ? <span className={styles.role}>{role}</span> : null}
+        </p>
+      )}
+
+      <ul className={styles.desc}>
+        {description.map((item, i) => (
+          <li key={i}>{item}</li>
         ))}
       </ul>
-      <style jsx>{`
-        .project-card {
-          border: 1px solid #333;
-          border-radius: 10px;
-          padding: 1.5rem;
-          margin-bottom: 1.5rem;
-          background: #23272f;
-          color: #f1f1f1;
-          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
-        }
-        h3 {
-          margin-top: 0;
-          color: #e0e6f0;
-        }
-        a {
-          color: #4ea1f7;
-          text-decoration: none;
-        }
-        a:hover {
-          text-decoration: underline;
-        }
-        p,
-        li {
-          color: #cfd8dc;
-        }
-      `}</style>
-    </div>
+
+      {post ? (
+        <Link href={post} className={styles.readMore}>
+          Read the write-up →
+        </Link>
+      ) : null}
+    </article>
   )
 }

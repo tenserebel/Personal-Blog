@@ -1,0 +1,259 @@
+.hero {
+  padding-top: clamp(3rem, 8vw, 6rem);
+  padding-bottom: var(--space-8);
+}
+
+.kicker {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0 0 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.kickerLine {
+  flex: 1;
+  max-width: 8rem;
+  height: 1px;
+  background: var(--hairline);
+}
+
+.name {
+  margin: 0;
+  font-size: clamp(2.7rem, 1rem + 11vw, 9rem);
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  font-weight: 600;
+  overflow-wrap: break-word;
+}
+
+.lede {
+  margin: var(--space-6) 0 0;
+  max-width: 34rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 1rem + 1vw, 1.7rem);
+  line-height: 1.4;
+  color: var(--ink);
+}
+
+.bio,
+.contact,
+.recent {
+  display: grid;
+  grid-template-columns: 10rem 1fr;
+  gap: var(--space-6);
+  padding-top: var(--space-8);
+  border-top: 1px solid var(--hairline);
+  margin-top: var(--space-8);
+}
+
+.bioLabel {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.bioLabel span {
+  color: var(--accent);
+  margin-right: 0.4rem;
+}
+
+.bioBody {
+  max-width: var(--measure);
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
+
+.bioBody p {
+  margin: 0 0 1.25rem;
+}
+
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: var(--measure);
+}
+
+.job {
+  padding: 1.4rem 0;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.job:first-child {
+  border-top: 1px solid var(--hairline);
+}
+
+.jobHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.jobRole {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.jobPeriod {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.jobCompany {
+  display: block;
+  margin-top: 0.2rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+  color: var(--accent-2);
+}
+
+.jobNote {
+  margin: 0.6rem 0 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.timelineLink {
+  display: inline-block;
+  margin-top: 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.timelineLink:hover {
+  color: var(--accent);
+}
+
+.contactList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: var(--measure);
+}
+
+.contactList a {
+  display: grid;
+  grid-template-columns: 8rem 1fr auto;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--hairline);
+  color: var(--ink);
+  text-decoration: none;
+  transition: padding-left 0.2s ease;
+}
+
+.contactList a:hover {
+  padding-left: 0.5rem;
+}
+
+.contactList li:first-child a {
+  border-top: 1px solid var(--hairline);
+}
+
+.contactLabel {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.contactHandle {
+  font-size: 1.05rem;
+}
+
+.contactArrow {
+  color: var(--muted);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.contactList a:hover .contactArrow {
+  transform: translate(3px, -3px);
+  color: var(--accent);
+}
+
+.recentList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.recentItem {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--hairline);
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.recentItem:first-child {
+  border-top: 1px solid var(--hairline);
+}
+
+.recentDate {
+  flex-shrink: 0;
+  width: 7rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.recentTitle {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  line-height: 1.2;
+  transition: color 0.2s ease;
+}
+
+.recentItem:hover .recentTitle {
+  color: var(--accent);
+}
+
+@media (max-width: 640px) {
+  .bio,
+  .contact,
+  .recent {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  .contactList a {
+    grid-template-columns: 1fr auto;
+  }
+  .contactLabel {
+    grid-column: 1 / -1;
+  }
+  .recentItem {
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+  .jobHead {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+}

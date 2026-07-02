@@ -1,0 +1,270 @@
+.wrap {
+  padding-top: var(--space-6);
+  padding-bottom: var(--space-8);
+}
+
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  max-width: 46rem;
+}
+
+/* the vertical rail */
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0.6rem;
+  bottom: 0.6rem;
+  left: 7px;
+  width: 2px;
+  background: repeating-linear-gradient(
+    var(--hairline),
+    var(--hairline) 6px,
+    transparent 6px,
+    transparent 11px
+  );
+}
+
+.item {
+  position: relative;
+  padding-left: 2.75rem;
+  padding-bottom: var(--space-6);
+}
+
+.item:last-child {
+  padding-bottom: 0;
+}
+
+.node {
+  position: absolute;
+  left: 0;
+  top: 1.4rem;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--muted);
+  transition: border-color 0.25s ease, background 0.25s ease,
+    box-shadow 0.25s ease, transform 0.25s ease;
+  z-index: 1;
+}
+
+.nodeCurrent {
+  border-color: var(--accent);
+  background: var(--accent);
+  box-shadow: 0 0 0 0 rgba(200, 69, 47, 0.5);
+  animation: nodePulse 2.6s ease-out infinite;
+}
+
+@keyframes nodePulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(200, 69, 47, 0.45);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(200, 69, 47, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(200, 69, 47, 0);
+  }
+}
+
+.card {
+  position: relative;
+  padding: var(--space-4) var(--space-6);
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: border-color 0.25s ease, transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+/* click / keyboard "open" state — works on every device, incl. touch */
+.card.open {
+  outline: none;
+  border-color: var(--ink);
+  transform: translateX(4px);
+  box-shadow: -4px 4px 0 0 var(--accent);
+}
+
+/* node precedes the card in the DOM, so react via the parent with :has() */
+.item:has(.card.open) .node {
+  border-color: var(--accent);
+  transform: scale(1.15);
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.period {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.badge {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: var(--accent);
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
+}
+
+.role {
+  margin: 0;
+  font-size: 1.5rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.company {
+  display: block;
+  margin-top: 0.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  color: var(--accent-2);
+}
+
+.summary {
+  margin: 0.75rem 0 0;
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+/* expandable region — animates height via grid-template-rows */
+.details {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  margin-top: 0;
+  transition: grid-template-rows 0.4s ease, opacity 0.35s ease,
+    margin-top 0.35s ease;
+}
+
+.detailsInner {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.card.open .details {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  margin-top: 1rem;
+}
+
+.points {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--hairline);
+  padding-top: 1rem;
+}
+
+.points li {
+  position: relative;
+  padding-left: 1.1rem;
+  margin-bottom: 0.7rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.points li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
+.stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.03em;
+  color: var(--ink);
+  padding: 0.2rem 0.55rem;
+  border: 1px solid var(--hairline);
+  border-radius: 999px;
+}
+
+.hint {
+  display: block;
+  margin-top: 0.85rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color 0.2s ease;
+}
+
+.card.open .hint {
+  color: var(--accent);
+}
+
+/* hover + keyboard-focus expansion only where a real pointer can hover
+   (desktop). Touch devices fall back to the tap-to-toggle "open" state. */
+@media (hover: hover) and (pointer: fine) {
+  .card:hover,
+  .card:focus-visible {
+    outline: none;
+    border-color: var(--ink);
+    transform: translateX(4px);
+    box-shadow: -4px 4px 0 0 var(--accent);
+  }
+
+  .item:hover .node,
+  .item:has(.card:focus-visible) .node {
+    border-color: var(--accent);
+    transform: scale(1.15);
+  }
+
+  .card:hover .details,
+  .card:focus-visible .details {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    margin-top: 1rem;
+  }
+
+  .card:hover .hint {
+    color: var(--accent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nodeCurrent {
+    animation: none;
+  }
+  .details {
+    transition: opacity 0.2s ease;
+  }
+}
+
+@media (max-width: 480px) {
+  .item {
+    padding-left: 2rem;
+  }
+  .card {
+    padding: var(--space-4);
+  }
+}

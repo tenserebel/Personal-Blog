@@ -1,0 +1,124 @@
+.header {
+  padding-top: clamp(2.5rem, 6vw, 4.5rem);
+  padding-bottom: var(--space-6);
+}
+
+.back {
+  display: inline-block;
+  margin-bottom: var(--space-6);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.back:hover {
+  color: var(--accent);
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.tag {
+  padding: 0.15rem 0.6rem;
+  border: 1px solid var(--hairline);
+  border-radius: 999px;
+  color: var(--accent-2);
+  text-decoration: none;
+}
+
+.tag:hover {
+  border-color: var(--accent-2);
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(2.2rem, 1rem + 5vw, 4rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  font-weight: 600;
+  max-width: 20ch;
+}
+
+.author {
+  margin: var(--space-4) 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.bodyWrap {
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--hairline);
+}
+
+.body {
+  max-width: var(--measure);
+}
+
+.pager {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+  padding-top: var(--space-8);
+  margin-top: var(--space-8);
+  border-top: 1px solid var(--hairline);
+}
+
+.pagerItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: var(--space-4);
+  border: 1px solid var(--hairline);
+  border-radius: 3px;
+  text-decoration: none;
+  color: var(--ink);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.pagerItem:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+}
+
+.pagerNext {
+  text-align: right;
+  align-items: flex-end;
+}
+
+.pagerDir {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.pagerTitle {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  line-height: 1.2;
+}
+
+@media (max-width: 560px) {
+  .pager {
+    grid-template-columns: 1fr;
+  }
+  .pagerNext {
+    text-align: left;
+    align-items: flex-start;
+  }
+}
